@@ -1,0 +1,1076 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary SEO Meta Tags -->
+    <title>Aura Ethnic - Handcrafted Lucknowi Chikankari, Party & Cotton Wear</title>
+    <meta name="description" content="Discover premium Indian ethnic wear: authentic Lucknowi Chikankari, elegant Party Wear, breezy Cotton Suti kurtis, and everyday Regular Wear. Custom sizes & worldwide shipping.">
+    <meta name="keywords" content="Ethnic Wear, Lucknowi Chikankari, Party Wear Anarkali, Cotton Kurtis, Indian Traditional Wear, Suti Collection">
+    <meta name="author" content="Aura Ethnic Wear">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbf5',
+                            100: '#fef3e2',
+                            200: '#fce4c1',
+                            500: '#d97706',
+                            600: '#b45309',
+                            800: '#78350f',
+                            900: '#451a03',
+                            royal: '#800020',
+                            gold: '#D4AF37',
+                            goldlight: '#F4E07D'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif-heading { font-family: 'Playfair Display', Georgia, serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-amber-50/20 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- ANNOUNCEMENT BAR                           -->
+    <!-- ========================================== -->
+    <div class="bg-brand-royal text-brand-goldlight text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex justify-between items-center px-6">
+        <span class="hidden sm:inline"><i class="fa-solid fa-truck-fast mr-2">meta</i> Free Express Shipping Across India on Orders Above ₹1,999</span>
+        <span class="w-full sm:w-auto text-center"><i class="fa-solid fa-sparkles text-brand-gold mr-1"></i> Festive Sale Live: Get Extra 15% Off | Code: <strong>AURA15</strong></span>
+        <button id="adminToggleBtn" onclick="toggleAdminMode()" class="bg-brand-gold text-brand-900 text-xs px-2 py-0.5 rounded font-bold hover:bg-white transition" title="Toggle Editable Mode for Images & Prices">
+            <i class="fa-solid fa-pen-to-square mr-1"></i> Admin Edit Mode
+        </button>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- HEADER & NAVIGATION                        -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-40 glass-header border-b border-amber-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 rounded-full bg-brand-royal flex items-center justify-center text-brand-gold font-serif-heading font-bold text-xl mr-3 shadow-md border border-brand-gold">
+                        A
+                    </div>
+                    <div>
+                        <span class="font-serif-heading text-2xl font-bold tracking-tight text-brand-royal block leading-none">AURA</span>
+                        <span class="text-[10px] tracking-[0.25em] text-brand-600 font-semibold uppercase block mt-1">Ethnic Elegance</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="navigateTo('home')" class="nav-link text-slate-700 hover:text-brand-royal font-medium transition py-2 border-b-2 border-transparent hover:border-brand-royal text-sm uppercase tracking-wider" id="nav-home">Home</button>
+                    <button onclick="navigateToCategory('all')" class="nav-link text-slate-700 hover:text-brand-royal font-medium transition py-2 border-b-2 border-transparent hover:border-brand-royal text-sm uppercase tracking-wider" id="nav-shop">Shop All</button>
+                    
+                    <!-- Category Dropdown -->
+                    <div class="relative group py-2">
+                        <button class="text-slate-700 group-hover:text-brand-royal font-medium transition text-sm uppercase tracking-wider flex items-center">
+                            Categories <i class="fa-solid fa-chevron-down text-xs ml-1 transition group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-56 bg-white rounded-xl shadow-xl border border-amber-100 py-2 hidden group-hover:block transition-all duration-200">
+                            <a href="#category" onclick="navigateToCategory('lucknowi')" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-amber-50 hover:text-brand-royal">Lucknowi Chikankari</a>
+                            <a href="#category" onclick="navigateToCategory('party')" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-amber-50 hover:text-brand-royal">Party Wear</a>
+                            <a href="#category" onclick="navigateToCategory('cotton')" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-amber-50 hover:text-brand-royal">Cotton / Suti Collection</a>
+                            <a href="#category" onclick="navigateToCategory('regular')" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-amber-50 hover:text-brand-royal">Regular Daily Wear</a>
+                        </div>
+                    </div>
+
+                    <button onclick="navigateTo('about')" class="nav-link text-slate-700 hover:text-brand-royal font-medium transition py-2 border-b-2 border-transparent hover:border-brand-royal text-sm uppercase tracking-wider" id="nav-about">Craftsmanship</button>
+                    <button onclick="navigateTo('contact')" class="nav-link text-slate-700 hover:text-brand-royal font-medium transition py-2 border-b-2 border-transparent hover:border-brand-royal text-sm uppercase tracking-wider" id="nav-contact">Contact Us</button>
+                </nav>
+
+                <!-- Action Icons -->
+                <div class="flex items-center space-x-5">
+                    <!-- Favourites Button -->
+                    <button onclick="navigateTo('favourites')" class="relative text-slate-700 hover:text-brand-royal transition p-1" title="Wishlist">
+                        <i class="fa-regular fa-heart text-xl"></i>
+                        <span id="favCount" class="absolute -top-1 -right-2 bg-brand-royal text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Cart Icon & Counter -->
+                    <button onclick="toggleCartDrawer()" class="relative text-slate-700 hover:text-brand-royal transition p-1" title="Shopping Cart">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-2 bg-brand-gold text-brand-900 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Direct WhatsApp Button -->
+                    <a id="headerWhatsappBtn" href="https://wa.me/919876543210?text=Hello%20Aura%20Ethnic,%20I%20have%20an%20inquiry%20regarding%20your%20collection!" target="_blank" class="hidden lg:flex items-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-2 rounded-full transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base mr-1.5"></i> Order On WhatsApp
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 text-xl focus:outline-none p-1">
+                        <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-amber-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2 text-slate-700 font-medium hover:text-brand-royal">Home</button>
+            <button onclick="navigateToCategory('all'); toggleMobileMenu()" class="block w-full text-left py-2 text-slate-700 font-medium hover:text-brand-royal">Shop All Products</button>
+            <div class="pl-4 space-y-2 border-l-2 border-amber-200">
+                <button onclick="navigateToCategory('lucknowi'); toggleMobileMenu()" class="block text-sm text-slate-600">Lucknowi Chikankari</button>
+                <button onclick="navigateToCategory('party'); toggleMobileMenu()" class="block text-sm text-slate-600">Party Wear</button>
+                <button onclick="navigateToCategory('cotton'); toggleMobileMenu()" class="block text-sm text-slate-600">Cotton / Suti</button>
+                <button onclick="navigateToCategory('regular'); toggleMobileMenu()" class="block text-sm text-slate-600">Regular Wear</button>
+            </div>
+            <button onclick="navigateTo('favourites'); toggleMobileMenu()" class="block w-full text-left py-2 text-slate-700 font-medium hover:text-brand-royal">My Wishlist</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left py-2 text-slate-700 font-medium hover:text-brand-royal">Contact Us</button>
+        </div>
+    </header>
+
+    <!-- ADMIN EDIT BAR BANNER (Hidden by default) -->
+    <div id="adminNoticeBar" class="hidden bg-amber-500 text-slate-900 py-2 px-4 text-xs font-semibold text-center border-b border-amber-600 flex justify-between items-center">
+        <span><i class="fa-solid fa-triangle-exclamation mr-1"></i> Admin Editing Mode Active: You can now click "Edit Details" on any product to update photos, prices, descriptions & sizes!</span>
+        <button onclick="toggleAdminMode()" class="underline font-bold text-slate-900">Exit Admin</button>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT CONTAINER                    -->
+    <!-- ========================================== -->
+    <main class="flex-grow">
+        
+        <!-- SECTION: HOME PAGE -->
+        <section id="page-home" class="page-view space-y-16 pb-16">
+            
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-r from-brand-royal via-amber-950 to-brand-royal text-white overflow-hidden py-16 lg:py-24">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center md:text-left">
+                        <span class="inline-block bg-brand-gold/20 text-brand-goldlight border border-brand-gold/40 text-xs tracking-widest uppercase font-semibold px-3 py-1 rounded-full">
+                            Handmade Heritage 2026 Collection
+                        </span>
+                        <h1 class="font-serif-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            Timeless Grace of <span class="text-brand-gold font-italics">Royal Ethnic</span> Craft.
+                        </h1>
+                        <p class="text-amber-100/90 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+                            Explore authentic Lucknowi Chikankari, breathtaking Party Wear Anarkalis, and breathable Cotton/Suti daily wear curated for the modern connoisseur.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                            <button onclick="navigateToCategory('lucknowi')" class="bg-brand-gold hover:bg-yellow-500 text-brand-900 font-bold px-8 py-3.5 rounded-xl transition shadow-lg hover:shadow-brand-gold/30">
+                                Explore Chikankari <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                            <button onclick="navigateToCategory('all')" class="border border-amber-200/40 hover:bg-white/10 text-white font-medium px-8 py-3.5 rounded-xl transition">
+                                View Full Collection
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Collage -->
+                    <div class="relative flex justify-center">
+                        <div class="relative w-72 h-96 sm:w-80 sm:h-[440px] rounded-2xl overflow-hidden border-4 border-brand-gold/40 shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+                            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Lucknowi Chikankari Kurti" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -left-4 sm:left-4 bg-white text-slate-800 p-4 rounded-xl shadow-2xl border border-amber-100 max-w-[200px] text-xs font-medium">
+                            <div class="flex items-center space-x-1 text-amber-500 mb-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-bold text-sm text-brand-royal">100% Hand-Embroidered</p>
+                            <p class="text-slate-500 mt-0.5">Authentic artisans from Lucknow, UP.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Proposition Badges -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-amber-100/80">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-brand-royal flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-gem"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-900">Pure Fabrics</h3>
+                            <p class="text-xs text-slate-500">100% Pure Georgette & Cotton</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-brand-royal flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-scissors"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-900">Custom Sizing</h3>
+                            <p class="text-xs text-slate-500">XS to 5XL tailored fits</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-brand-royal flex items-center justify-center text-xl shrink-0"><i class="fa-brands fa-whatsapp text-2xl"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-900">Instant Order</h3>
+                            <p class="text-xs text-slate-500">Easy WhatsApp Checkout</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-brand-royal flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-rotate-left"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-900">Easy Returns</h3>
+                            <p class="text-xs text-slate-500">7-Day Hassle-free Exchange</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Categories Grid -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-2 mb-12">
+                    <h2 class="font-serif-heading text-3xl sm:text-4xl font-bold text-slate-900">Curated Collections</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto">Explore handpicked styles tailored for festive celebrations, everyday comfort, and royal events.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Category Card 1 -->
+                    <div onclick="navigateToCategory('lucknowi')" class="group relative rounded-2xl overflow-hidden h-80 shadow-md cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Lucknowi Chikankari" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-serif-heading text-xl font-bold">Lucknowi Chikankari</h3>
+                            <p class="text-xs text-amber-200/90 mt-1">Hand-embroidered Shadow Work</p>
+                            <span class="inline-flex items-center text-xs font-semibold mt-3 text-brand-gold group-hover:underline">Shop Chikankari <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Category Card 2 -->
+                    <div onclick="navigateToCategory('party')" class="group relative rounded-2xl overflow-hidden h-80 shadow-md cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80" alt="Party Wear Ethnic" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-serif-heading text-xl font-bold">Party Wear</h3>
+                            <p class="text-xs text-amber-200/90 mt-1">Heavy Zari & Designer Anarkalis</p>
+                            <span class="inline-flex items-center text-xs font-semibold mt-3 text-brand-gold group-hover:underline">Shop Party Wear <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Category Card 3 -->
+                    <div onclick="navigateToCategory('cotton')" class="group relative rounded-2xl overflow-hidden h-80 shadow-md cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1596783074918-c84cb06a9d74?auto=format&fit=crop&w=600&q=80" alt="Cotton Suti Wear" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-serif-heading text-xl font-bold">Cotton / Suti</h3>
+                            <p class="text-xs text-amber-200/90 mt-1">Breezy Daily Print Kurtis</p>
+                            <span class="inline-flex items-center text-xs font-semibold mt-3 text-brand-gold group-hover:underline">Shop Cotton Suti <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Category Card 4 -->
+                    <div onclick="navigateToCategory('regular')" class="group relative rounded-2xl overflow-hidden h-80 shadow-md cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80" alt="Regular Daily Wear" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-serif-heading text-xl font-bold">Regular Wear</h3>
+                            <p class="text-xs text-amber-200/90 mt-1">Comfortable Office & Home Outfits</p>
+                            <span class="inline-flex items-center text-xs font-semibold mt-3 text-brand-gold group-hover:underline">Shop Regular Wear <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Product Preview Grid (Bestsellers Summary) -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                    <div>
+                        <h2 class="font-serif-heading text-3xl font-bold text-slate-900">Trending Bestsellers</h2>
+                        <p class="text-slate-600 text-sm mt-1">Most loved styles across all categories</p>
+                    </div>
+                    <button onclick="navigateToCategory('all')" class="mt-4 md:mt-0 text-brand-royal font-semibold text-sm hover:underline flex items-center">
+                        View All Products <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Products Grid Render Target -->
+                <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Dynamic JS Injection -->
+                </div>
+            </div>
+
+            <!-- WhatsApp Direct Banner -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-emerald-800 to-teal-900 rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between shadow-xl">
+                    <div class="space-y-3 text-center md:text-left max-w-xl">
+                        <span class="bg-emerald-700/60 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Custom Tailoring Available</span>
+                        <h2 class="font-serif-heading text-3xl sm:text-4xl font-bold">Need Personal Assistance or Custom Fitting?</h2>
+                        <p class="text-emerald-100 text-sm font-light">Chat directly with our styling experts on WhatsApp. Send us product screenshots or custom measurement specs for instant quotes!</p>
+                    </div>
+                    <a href="https://wa.me/919876543210?text=Hello!%20I%20would%20like%20to%20get%20custom%20assistance%20for%20Ethnic%20Wear." target="_blank" class="mt-6 md:mt-0 bg-white text-emerald-900 hover:bg-emerald-50 font-bold px-8 py-4 rounded-xl transition shadow-lg flex items-center shrink-0">
+                        <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mr-3"></i> Chat on WhatsApp Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PRODUCT CATALOG / CATEGORIES PAGE -->
+        <section id="page-catalog" class="page-view hidden space-y-8 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-b border-amber-200 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h1 id="catalogTitle" class="font-serif-heading text-3xl sm:text-4xl font-bold text-slate-900">Ethnic Collections</h1>
+                    <p id="catalogSubtitle" class="text-slate-600 text-sm mt-1">Browse through our authentic handwoven & stitched ethnic catalog.</p>
+                </div>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterCategory('all')" id="cat-btn-all" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-brand-royal text-white border-brand-royal">All Styles</button>
+                    <button onclick="filterCategory('lucknowi')" id="cat-btn-lucknowi" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-white text-slate-700 border-amber-200 hover:border-brand-royal">Lucknowi Chikankari</button>
+                    <button onclick="filterCategory('party')" id="cat-btn-party" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-white text-slate-700 border-amber-200 hover:border-brand-royal">Party Wear</button>
+                    <button onclick="filterCategory('cotton')" id="cat-btn-cotton" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-white text-slate-700 border-amber-200 hover:border-brand-royal">Cotton / Suti</button>
+                    <button onclick="filterCategory('regular')" id="cat-btn-regular" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-white text-slate-700 border-amber-200 hover:border-brand-royal">Regular Wear</button>
+                </div>
+            </div>
+
+            <!-- Full Product Grid Target -->
+            <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dynamically Populated by JS -->
+            </div>
+        </section>
+
+        <!-- SECTION: FAVOURITES / WISHLIST PAGE -->
+        <section id="page-favourites" class="page-view hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-b border-amber-200 pb-4 mb-8">
+                <h1 class="font-serif-heading text-3xl font-bold text-slate-900">Your Favourites</h1>
+                <p class="text-slate-600 text-sm">Items you have saved for later</p>
+            </div>
+            <div id="favouritesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- SECTION: CRAFTSMANSHIP / ABOUT PAGE -->
+        <section id="page-about" class="page-view hidden py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center space-y-4">
+                <h1 class="font-serif-heading text-4xl font-bold text-brand-royal">The Art of Handcrafted Heritage</h1>
+                <p class="text-slate-600 text-base max-w-2xl mx-auto">At Aura Ethnic, we bridge traditional Indian artisan clusters with contemporary fashion aesthetics, preserving centuries-old Lucknowi Shadow embroidery and pure weave craftsmanship.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Lucknowi Artisan Handwork" class="rounded-2xl shadow-lg border border-amber-200">
+                <div class="space-y-4">
+                    <h2 class="font-serif-heading text-2xl font-bold text-slate-900">Authentic Lucknowi Chikankari</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Each Chikankari garment undergoes a meticulous 32-stitch process executed by master craftswomen in Lucknow. From <em>Bakhiya</em> (shadow stitch) to <em>Phanda</em> (millet-shaped knots), every piece is a unique masterpiece of patience and beauty.
+                    </p>
+                    <h2 class="font-serif-heading text-2xl font-bold text-slate-900">Pure Cotton & Suti Collection</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We source 100% long-staple breathable cotton, block-printed with non-toxic organic dyes to guarantee comfort, longevity, and timeless style for everyday wear.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONTACT US & WHATSAPP PAGE -->
+        <section id="page-contact" class="page-view hidden py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Form Column -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-amber-100 space-y-6">
+                    <div>
+                        <h1 class="font-serif-heading text-3xl font-bold text-slate-900">Contact & Order Inquiry</h1>
+                        <p class="text-slate-600 text-sm mt-1">Fill out the form below. Clicking <strong>Submit to WhatsApp</strong> will open WhatsApp with your message pre-filled!</p>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Your Name *</label>
+                            <input type="text" id="contactName" required placeholder="e.g. Priya Sharma" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-royal text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="contactPhone" required placeholder="+91 9876543210" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-royal text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Interested Category / Product</label>
+                            <select id="contactCategory" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-royal text-sm">
+                                <option value="Lucknowi Chikankari">Lucknowi Chikankari</option>
+                                <option value="Party Wear">Party Wear</option>
+                                <option value="Cotton / Suti Collection">Cotton / Suti Collection</option>
+                                <option value="Regular Wear">Regular Daily Wear</option>
+                                <option value="Custom Fit Fitting Inquiry">Custom Fit Fitting Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Message or Customization Details</label>
+                            <textarea id="contactMessage" rows="4" placeholder="Tell us your preferred size, color choices or specific requirements..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-royal text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Submit & Connect on WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Column -->
+                <div class="space-y-8 flex flex-col justify-between">
+                    <div class="bg-amber-900 text-white p-8 rounded-3xl shadow-lg space-y-6">
+                        <h2 class="font-serif-heading text-2xl font-bold text-brand-gold">Flagship Boutique & Studio</h2>
+                        <p class="text-amber-100/90 text-sm leading-relaxed">Visit our store for live draping trials and custom fitting consultations with our fashion advisers.</p>
+                        
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+                                <span>104, Hazratganj Main Market, Lucknow, Uttar Pradesh - 226001</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-phone text-brand-gold"></i>
+                                <span>+91 98765 43210 / +91 522 234567</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-envelope text-brand-gold"></i>
+                                <span>orders@auraethnic.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-amber-100 shadow-sm text-center">
+                        <h3 class="font-bold text-slate-900">Store Hours</h3>
+                        <p class="text-xs text-slate-500 mt-1">Monday – Saturday: 10:00 AM – 9:00 PM IST</p>
+                        <p class="text-xs text-emerald-600 font-semibold mt-2"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Live WhatsApp Support Available Today</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- SLIDE-OVER SHOPPING CART DRAWER            -->
+    <!-- ========================================== -->
+    <div id="cartDrawerBackdrop" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-900/60 z-50 hidden transition-opacity"></div>
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 border-b border-amber-100 flex items-center justify-between bg-amber-50/50">
+            <h2 class="font-serif-heading text-lg font-bold text-brand-royal flex items-center">
+                <i class="fa-solid fa-bag-shopping mr-2"></i> Your Shopping Bag (<span id="cartDrawerCount">0</span>)
+            </h2>
+            <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-slate-700 p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-4">
+            <!-- Dynamic Cart Items -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-4 border-t border-amber-100 bg-amber-50/30 space-y-3">
+            <div class="flex justify-between text-sm">
+                <span class="text-slate-600">Subtotal:</span>
+                <span id="cartSubtotal" class="font-bold text-slate-900">₹0</span>
+            </div>
+            <div class="flex justify-between text-xs text-emerald-700">
+                <span>Shipping:</span>
+                <span class="font-bold">Calculated on WhatsApp</span>
+            </div>
+            <button onclick="checkoutToWhatsapp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center space-x-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Checkout via WhatsApp</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- PRODUCT EDIT MODAL (ADMIN MODE)           -->
+    <!-- ========================================== -->
+    <div id="editProductModal" class="fixed inset-0 bg-slate-900/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-slate-900 text-lg">Edit Product Information</h3>
+                <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <input type="hidden" id="editProductId">
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Product Title</label>
+                <input type="text" id="editTitle" class="w-full border rounded-lg p-2 text-sm">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Image URL</label>
+                <input type="text" id="editImage" class="w-full border rounded-lg p-2 text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Price (₹)</label>
+                    <input type="number" id="editPrice" class="w-full border rounded-lg p-2 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Category</label>
+                    <select id="editCategory" class="w-full border rounded-lg p-2 text-sm">
+                        <option value="lucknowi">Lucknowi Chikankari</option>
+                        <option value="party">Party Wear</option>
+                        <option value="cotton">Cotton / Suti</option>
+                        <option value="regular">Regular Wear</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sizes Available (comma separated)</label>
+                <input type="text" id="editSizes" class="w-full border rounded-lg p-2 text-sm" placeholder="S, M, L, XL, XXL">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Description</label>
+                <textarea id="editDesc" rows="3" class="w-full border rounded-lg p-2 text-sm"></textarea>
+            </div>
+            <div class="flex justify-end space-x-3 pt-3">
+                <button onclick="closeEditModal()" class="px-4 py-2 border rounded-lg text-xs font-bold text-slate-600">Cancel</button>
+                <button onclick="saveProductEdits()" class="px-4 py-2 bg-brand-royal text-white rounded-lg text-xs font-bold">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-slate-950 text-slate-300 border-t border-amber-900/40 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-brand-royal flex items-center justify-center text-brand-gold font-serif-heading font-bold text-lg mr-2 border border-brand-gold">
+                            A
+                        </div>
+                        <span class="font-serif-heading text-xl font-bold text-white tracking-wider">AURA ETHNIC</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Bringing authentic Indian handloom, handmade Chikankari, and contemporary ethnic styles to fashion lovers around the globe.
+                    </p>
+                    <div class="flex space-x-4 text-slate-400 text-lg">
+                        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Category Quick Links -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 border-b border-amber-900/40 pb-2">Collections</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#catalog" onclick="navigateToCategory('lucknowi')" class="hover:text-brand-gold">Lucknowi Chikankari</a></li>
+                        <li><a href="#catalog" onclick="navigateToCategory('party')" class="hover:text-brand-gold">Party Wear Suits & Anarkalis</a></li>
+                        <li><a href="#catalog" onclick="navigateToCategory('cotton')" class="hover:text-brand-gold">Cotton Suti Daily Kurtis</a></li>
+                        <li><a href="#catalog" onclick="navigateToCategory('regular')" class="hover:text-brand-gold">Regular Everyday Wear</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 border-b border-amber-900/40 pb-2">Customer Service</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-brand-gold">Order Tracking</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-brand-gold">Custom Fit Guide</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-brand-gold">Shipping & Exchange Policy</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="hover:text-brand-gold">Artisan Story</a></li>
+                    </ul>
+                </div>
+
+                <!-- Direct WhatsApp Order Box -->
+                <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <h4 class="text-white text-sm font-bold">Quick WhatsApp Contact</h4>
+                    <p class="text-xs text-slate-400">Have questions on sizing or fabric? Tap below to speak with an artisan right now.</p>
+                    <a href="https://wa.me/919876543210?text=Hi%20Aura%20Ethnic%20Team," target="_blank" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl transition">
+                        <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Support
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2026 Aura Ethnic Wear. All Rights Reserved. Designed for Artisanal Excellence.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- TAWK.TO LIVE CHAT INTEGRATION SCRIPT      -->
+    <!-- ========================================== -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            // Place your Tawk.to direct link here. Example demo script below:
+            s1.src='https://embed.tawk.to/600000000000000000000000/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+
+    <!-- ========================================== -->
+    <!-- APPLICATION JAVASCRIPT STATE ENGINE       -->
+    <!-- ========================================== -->
+    <script>
+        // Initial Sample Products State
+        let defaultProducts = [
+            {
+                id: 'p1',
+                title: 'Royal White Georgette Lucknowi Chikankari Kurti Set',
+                category: 'lucknowi',
+                price: 3499,
+                image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+                sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+                description: 'Exquisite shadow-work hand embroidery on fine pure georgette, complete with matching inner and palazzo.'
+            },
+            {
+                id: 'p2',
+                title: 'Embellished Maroon Silk Anarkali Party Gown',
+                category: 'party',
+                price: 5999,
+                image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80',
+                sizes: ['M', 'L', 'XL'],
+                description: 'Heavy Zardozi hand work on royal silk crepe with flared silhouette and duppata for weddings.'
+            },
+            {
+                id: 'p3',
+                title: 'Breezy Pastel Block-Print Cotton Suti Suit',
+                category: 'cotton',
+                price: 1899,
+                image: 'https://images.unsplash.com/photo-1596783074918-c84cb06a9d74?auto=format&fit=crop&w=600&q=80',
+                sizes: ['XS', 'S', 'M', 'L', 'XL'],
+                description: '100% Breathable Suti pure cotton kurti with pants. Perfect for summer comfort and work.'
+            },
+            {
+                id: 'p4',
+                title: 'Casual Floral Regular Straight Kurti',
+                category: 'regular',
+                price: 1299,
+                image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                description: 'Lightweight regular wear straight kurti crafted with durable cotton blend for college or daily errands.'
+            },
+            {
+                id: 'p5',
+                title: 'Pastel Pink Lucknowi Chikankari Angrakha',
+                category: 'lucknowi',
+                price: 4299,
+                image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+                sizes: ['S', 'M', 'L'],
+                description: 'Traditional Angrakha cut with intricate Murri & Phanda stitch chikankari embroidery.'
+            },
+            {
+                id: 'p6',
+                title: 'Velvet Heavily Embroidered Festive Sharara Set',
+                category: 'party',
+                price: 7499,
+                image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80',
+                sizes: ['M', 'L', 'XL'],
+                description: 'Luxurious velvet kurta with gota patti border sharara and organza dupatta.'
+            },
+            {
+                id: 'p7',
+                title: 'Jaipuri Indigo Suti Handblock Printed Set',
+                category: 'cotton',
+                price: 2199,
+                image: 'https://images.unsplash.com/photo-1596783074918-c84cb06a9d74?auto=format&fit=crop&w=600&q=80',
+                sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+                description: 'Authentic Dabu Indigo block printed cotton kurta paired with cotton mulmul dupatta.'
+            },
+            {
+                id: 'p8',
+                title: 'Minimalist Olive Green Daily Wear Straight Kurta',
+                category: 'regular',
+                price: 999,
+                image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                description: 'Simple elegant tunic style daily wear kurta for home and office comfort.'
+            }
+        ];
+
+        // State variables
+        let products = JSON.parse(localStorage.getItem('aura_products')) || defaultProducts;
+        let cart = JSON.parse(localStorage.getItem('aura_cart')) || [];
+        let favourites = JSON.parse(localStorage.getItem('aura_favs')) || [];
+        let adminMode = false;
+        let selectedSizesState = {}; // Stores chosen size per product ID
+
+        // App Initialization
+        window.onload = function() {
+            renderFeaturedProducts();
+            renderCatalog('all');
+            updateCartUI();
+            updateFavUI();
+        };
+
+        // Navigation Engine
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
+            const target = document.getElementById('page-' + pageId);
+            if(target) target.classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if(pageId === 'favourites') {
+                renderFavourites();
+            }
+        }
+
+        function navigateToCategory(catKey) {
+            navigateTo('catalog');
+            filterCategory(catKey);
+        }
+
+        // Admin Toggle
+        function toggleAdminMode() {
+            adminMode = !adminMode;
+            const bar = document.getElementById('adminNoticeBar');
+            if(adminMode) {
+                bar.classList.remove('hidden');
+            } else {
+                bar.classList.add('hidden');
+            }
+            renderFeaturedProducts();
+            renderCatalog(currentFilterCategory);
+        }
+
+        // Render Featured Home Products
+        function renderFeaturedProducts() {
+            const container = document.getElementById('homeFeaturedGrid');
+            container.innerHTML = products.slice(0, 4).map(p => createProductCardHTML(p)).join('');
+        }
+
+        let currentFilterCategory = 'all';
+
+        function filterCategory(cat) {
+            currentFilterCategory = cat;
+
+            // Update Active Buttons
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-royal', 'text-white', 'border-brand-royal');
+                btn.classList.add('bg-white', 'text-slate-700', 'border-amber-200');
+            });
+            const activeBtn = document.getElementById(`cat-btn-${cat}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700', 'border-amber-200');
+                activeBtn.classList.add('bg-brand-royal', 'text-white', 'border-brand-royal');
+            }
+
+            // Update Title Headers
+            const titleEl = document.getElementById('catalogTitle');
+            const subTitleEl = document.getElementById('catalogSubtitle');
+            
+            const titles = {
+                all: 'All Ethnic Collections',
+                lucknowi: 'Lucknowi Chikankari Collection',
+                party: 'Party & Festive Wear',
+                cotton: 'Breezy Cotton / Suti Collection',
+                regular: 'Everyday Regular Wear'
+            };
+
+            const subtitles = {
+                all: 'Browse through our full authentic handwoven and stitched catalog.',
+                lucknowi: 'Traditional 32-stitch hand embroidery from Lucknow master artisans.',
+                party: 'Heavy silk, zari embroidery, and designer flared dresses.',
+                cotton: 'Pure 100% Suti cotton crafted for hot Indian climate and maximum comfort.',
+                regular: 'Smart, minimal daily wear kurtis for work and daily leisure.'
+            };
+
+            if(titleEl) titleEl.innerText = titles[cat] || titles.all;
+            if(subTitleEl) subTitleEl.innerText = subtitles[cat] || subtitles.all;
+
+            renderCatalog(cat);
+        }
+
+        function renderCatalog(cat) {
+            const container = document.getElementById('catalogGrid');
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+
+            if(filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500">No items found in this category.</div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(p => createProductCardHTML(p)).join('');
+        }
+
+        // Product Card Renderer
+        function createProductCardHTML(p) {
+            const isFav = favourites.includes(p.id);
+            const selectedSize = selectedSizesState[p.id] || p.sizes[0];
+
+            return `
+            <div class="bg-white rounded-2xl overflow-hidden border border-amber-100 shadow-sm hover:shadow-lg transition duration-300 flex flex-col group relative">
+                <!-- Fav Icon -->
+                <button onclick="toggleFav('${p.id}')" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-600 hover:text-red-500 transition shadow-sm">
+                    <i class="${isFav ? 'fa-solid fa-heart text-red-500' : 'fa-regular fa-heart'}"></i>
+                </button>
+
+                <!-- Admin Quick Edit Button -->
+                ${adminMode ? `
+                    <button onclick="openEditModal('${p.id}')" class="absolute top-3 left-3 z-10 bg-brand-gold text-brand-900 text-xs px-2 py-1 rounded font-bold shadow">
+                        <i class="fa-solid fa-pen"></i> Edit Details
+                    </button>
+                ` : ''}
+
+                <!-- Product Image -->
+                <div class="h-72 overflow-hidden bg-slate-100 relative">
+                    <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x800/fff3e2/78350f?text=Aura+Ethnic'">
+                    <span class="absolute bottom-3 left-3 bg-slate-900/70 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase backdrop-blur-sm">
+                        ${p.category}
+                    </span>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow justify-between space-y-3">
+                    <div>
+                        <h3 class="font-serif-heading font-bold text-base text-slate-900 line-clamp-1 group-hover:text-brand-royal transition" title="${p.title}">
+                            ${p.title}
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">${p.description}</p>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Select Size:</span>
+                        <div class="flex flex-wrap gap-1">
+                            ${p.sizes.map(size => `
+                                <button onclick="selectSize('${p.id}', '${size}')" class="text-xs w-7 h-7 rounded-md font-semibold border transition ${selectedSize === size ? 'bg-brand-royal text-white border-brand-royal' : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-brand-royal'}">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Price & Add Action -->
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium">Price:</span>
+                            <p class="text-lg font-bold text-brand-royal">₹${p.price.toLocaleString('en-IN')}</p>
+                        </div>
+                        <button onclick="addToCart('${p.id}')" class="bg-brand-gold hover:bg-yellow-500 text-brand-900 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center space-x-1 shadow-sm">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                            <span>Add To Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        // Size Selector
+        function selectSize(productId, size) {
+            selectedSizesState[productId] = size;
+            renderFeaturedProducts();
+            renderCatalog(currentFilterCategory);
+        }
+
+        // Cart Logic
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if(!product) return;
+
+            const size = selectedSizesState[productId] || product.sizes[0];
+            const cartItemIndex = cart.findIndex(ci => ci.id === productId && ci.selectedSize === size);
+
+            if(cartItemIndex > -1) {
+                cart[cartItemIndex].qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    image: product.image,
+                    selectedSize: size,
+                    qty: 1
+                });
+            }
+
+            saveCart();
+            toggleCartDrawer(true);
+        }
+
+        function updateCartQty(index, change) {
+            if(cart[index]) {
+                cart[index].qty += change;
+                if(cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                saveCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('aura_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').innerText = totalCount;
+            document.getElementById('cartDrawerCount').innerText = totalCount;
+
+            const listContainer = document.getElementById('cartItemsList');
+            if(cart.length === 0) {
+                listContainer.innerHTML = `<div class="text-center py-12 text-slate-400 text-sm">Your shopping bag is empty.</div>`;
+                document.getElementById('cartSubtotal').innerText = `₹0`;
+                return;
+            }
+
+            let subtotal = 0;
+            listContainer.innerHTML = cart.map((item, index) => {
+                subtotal += item.price * item.qty;
+                return `
+                <div class="flex items-center space-x-3 bg-amber-50/40 p-3 rounded-xl border border-amber-100">
+                    <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg">
+                    <div class="flex-grow">
+                        <h4 class="text-xs font-bold text-slate-800 line-clamp-1">${item.title}</h4>
+                        <p class="text-[11px] text-slate-500">Size: <span class="font-bold text-brand-royal">${item.selectedSize}</span></p>
+                        <p class="text-xs font-bold text-brand-royal mt-1">₹${item.price.toLocaleString('en-IN')}</p>
+                    </div>
+                    <div class="flex items-center border rounded-lg bg-white">
+                        <button onclick="updateCartQty(${index}, -1)" class="px-2 py-0.5 text-xs text-slate-600 font-bold">-</button>
+                        <span class="px-2 text-xs font-bold">${item.qty}</span>
+                        <button onclick="updateCartQty(${index}, 1)" class="px-2 py-0.5 text-xs text-slate-600 font-bold">+</button>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            document.getElementById('cartSubtotal').innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+        }
+
+        function toggleCartDrawer(openState) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            if(openState === true) {
+                drawer.classList.remove('translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('translate-x-full');
+                backdrop.classList.toggle('hidden');
+            }
+        }
+
+        // WhatsApp Direct Checkout Engine
+        function checkoutToWhatsapp() {
+            if(cart.length === 0) {
+                alert('Your bag is empty! Add products first.');
+                return;
+            }
+
+            let message = `Hello Aura Ethnic! I would like to place an order:\n\n`;
+            let grandTotal = 0;
+
+            cart.forEach((item, i) => {
+                const itemTotal = item.price * item.qty;
+                grandTotal += itemTotal;
+                message += `${i+1}. *${item.title}*\n   - Size: ${item.selectedSize}\n   - Qty: ${item.qty}\n   - Price: ₹${itemTotal}\n\n`;
+            });
+
+            message += `*Total Order Value:* ₹${grandTotal}\n\nPlease confirm availability & payment link!`;
+
+            const encodedURL = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            window.open(encodedURL, '_blank');
+        }
+
+        // Favourites Wishlist
+        function toggleFav(productId) {
+            const idx = favourites.indexOf(productId);
+            if(idx > -1) {
+                favourites.splice(idx, 1);
+            } else {
+                favourites.push(productId);
+            }
+            localStorage.setItem('aura_favs', JSON.stringify(favourites));
+            updateFavUI();
+            renderFeaturedProducts();
+            renderCatalog(currentFilterCategory);
+        }
+
+        function updateFavUI() {
+            document.getElementById('favCount').innerText = favourites.length;
+        }
+
+        function renderFavourites() {
+            const container = document.getElementById('favouritesGrid');
+            const favProducts = products.filter(p => favourites.includes(p.id));
+
+            if(favProducts.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500">You haven't added any items to your wishlist yet.</div>`;
+                return;
+            }
+
+            container.innerHTML = favProducts.map(p => createProductCardHTML(p)).join('');
+        }
+
+        // Contact Page WhatsApp Action
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const category = document.getElementById('contactCategory').value;
+            const msg = document.getElementById('contactMessage').value;
+
+            const text = `Hello Aura Ethnic Team,\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Category Interest:* ${category}\n*Message:* ${msg}`;
+            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Admin Edit Product Logic
+        function openEditModal(productId) {
+            const p = products.find(prod => prod.id === productId);
+            if(!p) return;
+
+            document.getElementById('editProductId').value = p.id;
+            document.getElementById('editTitle').value = p.title;
+            document.getElementById('editImage').value = p.image;
+            document.getElementById('editPrice').value = p.price;
+            document.getElementById('editCategory').value = p.category;
+            document.getElementById('editSizes').value = p.sizes.join(', ');
+            document.getElementById('editDesc').value = p.description;
+
+            document.getElementById('editProductModal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editProductModal').classList.add('hidden');
+        }
+
+        function saveProductEdits() {
+            const id = document.getElementById('editProductId').value;
+            const p = products.find(prod => prod.id === id);
+            if(!p) return;
+
+            p.title = document.getElementById('editTitle').value;
+            p.image = document.getElementById('editImage').value;
+            p.price = parseFloat(document.getElementById('editPrice').value) || 0;
+            p.category = document.getElementById('editCategory').value;
+            p.sizes = document.getElementById('editSizes').value.split(',').map(s => s.trim());
+            p.description = document.getElementById('editDesc').value;
+
+            localStorage.setItem('aura_products', JSON.stringify(products));
+            closeEditModal();
+            renderFeaturedProducts();
+            renderCatalog(currentFilterCategory);
+        }
+    </script>
+</body>
+</html>
